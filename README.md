@@ -310,19 +310,23 @@ Skill Extraction
 
 ## 📸 Screenshots
 
-Application screenshots are included in the `screenshots` folder.
+### 🏠 Main Interface
 
-The application provides a professional light-themed interface for:
+![Main Interface](screenshots/01%20main%20interface.png)
 
-- Candidate information
-- Resume input/upload
-- Job description input
-- Resume-job matching
-- Skill analysis
-- Candidate classification
-- Career insights
-- Improvement recommendations
+### 📋 Main Interface
 
+![Main Interface](screenshots/02%20main%20interface.png)
+
+### 📄 Resume & Job Description
+
+![Resume and Job Description](screenshots/03%20Resume%20%26%20Description.png)
+
+### 📊 Analysis Results
+
+![Analysis Results](screenshots/04%20Analysis.png)
+
+These screenshots demonstrate the main workflow of CareerMatch AI, including the application interface, resume and job-description input, and the resulting analysis.
 ---
 
 ## 🚀 Future Improvements
