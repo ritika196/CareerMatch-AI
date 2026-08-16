@@ -4,7 +4,7 @@
 
 CareerMatch AI is an AI/ML-based web application that analyzes a candidate's resume against a target job description and provides meaningful career insights.
 
-The system identifies relevant skills, calculates a resume-job compatibility score, detects missing skills, evaluates the candidate's profile, and provides suggestions for improvement.
+The system calculates a resume-job compatibility score, identifies relevant skills, detects skill gaps, evaluates the candidate's profile, and provides career-focused recommendations.
 
 ---
 
@@ -12,56 +12,64 @@ The system identifies relevant skills, calculates a resume-job compatibility sco
 
 Job seekers often apply for positions without knowing how well their resume matches the requirements of a particular job.
 
-Traditional resume screening can also be time-consuming because recruiters need to manually compare resumes with job descriptions.
+For recruiters, manually comparing resumes with job descriptions can also be time-consuming.
 
-CareerMatch AI aims to simplify this process by automatically comparing resume content with job requirements and presenting the results in an easy-to-understand format.
+CareerMatch AI aims to simplify this process by automatically comparing resume content with job requirements and presenting the results in an easy-to-understand interface.
 
 ---
 
-## 🎯 Project Objective
+## 🎯 Project Objectives
 
 The main objectives of CareerMatch AI are:
 
 - Analyze resume content using Natural Language Processing techniques.
-- Compare a resume with a given job description.
+- Compare resume content with a target job description.
 - Calculate an overall resume-job matching score.
 - Identify skills present in both the resume and job description.
-- Detect important skills missing from the candidate's resume.
+- Detect relevant skills missing from the candidate's resume.
 - Classify the candidate based on the matching score.
 - Provide career-focused improvement suggestions.
-- Present the analysis through a simple and user-friendly web interface.
+- Present the analysis through a simple and professional web interface.
 
 ---
 
 ## ✨ Key Features
 
-### 1. Resume Analysis
-Users can provide their resume information through the application.
+### 📄 Resume Analysis
 
-### 2. Job Description Analysis
-Users can enter the description and requirements of the target job.
+Users can either upload a PDF resume or provide resume content through the application.
 
-### 3. Resume-Job Matching
+### 💼 Job Description Analysis
+
+Users can enter the requirements and description of the target job role.
+
+### 🎯 Resume-Job Matching
+
 The application calculates how closely the resume matches the selected job description.
 
-### 4. Skill Detection
-The system identifies technical skills mentioned in the resume and job description.
+### 🧠 Skill Detection
 
-### 5. Matched Skills
-Skills appearing in both the resume and job description are displayed as matched skills.
+The system identifies relevant technical skills mentioned in the resume and job description.
 
-### 6. Skill Gap Detection
-The application identifies relevant skills required by the job that are missing from the resume.
+### ✅ Matched Skills
 
-### 7. Candidate Status
-Based on the matching score, the candidate is classified into categories such as:
+Skills detected in both the resume and job description are displayed as matched skills.
+
+### ⚠️ Skill Gap Detection
+
+The application identifies skills required by the job description that are not detected in the resume.
+
+### 📊 Candidate Classification
+
+Based on the overall matching score, the candidate is classified as:
 
 - Strong Candidate
 - Potential Candidate
 - Needs Improvement
 
-### 8. Career Insights
-The system provides:
+### 💡 Career Insights
+
+The application provides:
 
 - Resume strengths
 - Improvement strategy
@@ -71,38 +79,47 @@ The system provides:
 
 ## 🧠 How the Matching System Works
 
-CareerMatch AI uses Natural Language Processing and Machine Learning techniques to compare resume and job-description text.
+CareerMatch AI uses Natural Language Processing and machine learning techniques to compare resume and job-description text.
 
-### Step 1 — Text Input
+### Step 1 — Resume and Job Description Input
 
 The system receives:
 
 - Candidate resume
 - Target job description
 
-### Step 2 — TF-IDF Vectorization
+The resume can be provided as text or uploaded as a PDF.
 
-The text is converted into numerical vectors using **TF-IDF (Term Frequency-Inverse Document Frequency)**.
+### Step 2 — Text Extraction
 
-TF-IDF gives importance to words based on how frequently they occur in the documents.
+For PDF resumes, text is extracted from the uploaded document using PyPDF.
 
-### Step 3 — Cosine Similarity
+### Step 3 — TF-IDF Vectorization
 
-The numerical representations of the resume and job description are compared using **Cosine Similarity**.
+The resume and job description are converted into numerical representations using **TF-IDF (Term Frequency-Inverse Document Frequency)**.
 
-The resulting similarity value is converted into a percentage to produce the overall match score.
+TF-IDF assigns importance to words based on their relevance within the documents.
 
-### Step 4 — Skill Extraction
+### Step 4 — Cosine Similarity
 
-The system checks the text for relevant technical skills such as:
+The TF-IDF representations of the resume and job description are compared using **Cosine Similarity**.
+
+The similarity value is converted into a percentage to produce the overall resume-job match score.
+
+### Step 5 — Skill Extraction
+
+The application checks the text for a predefined set of relevant technical skills.
+
+These can include skills such as:
 
 - Python
-- Java
 - SQL
 - Excel
 - Power BI
 - Tableau
 - Machine Learning
+- Deep Learning
+- Data Analysis
 - Pandas
 - NumPy
 - Scikit-learn
@@ -119,7 +136,9 @@ The system checks the text for relevant technical skills such as:
 - AWS
 - Docker
 
-### Step 5 — Skill Gap Analysis
+> **Note:** These are skills that CareerMatch AI can detect in candidate/job-description text. They are not necessarily technologies used to build the application.
+
+### Step 6 — Skill Gap Analysis
 
 The detected skills are divided into:
 
@@ -131,15 +150,19 @@ Skills found in both the resume and job description.
 
 Skills required by the job description but not detected in the resume.
 
-### Step 6 — Career Recommendations
+### Step 7 — Candidate Evaluation
 
-Based on the detected skill gaps, the application provides suggestions to help the candidate improve their profile.
+The overall match score is used to classify the candidate as a Strong Candidate, Potential Candidate, or Needs Improvement.
+
+### Step 8 — Career Recommendations
+
+The application provides improvement suggestions based on the detected skill gaps and analysis.
 
 ---
 
 ## 📊 Application Output
 
-CareerMatch AI provides several useful metrics and insights:
+CareerMatch AI provides:
 
 - Overall Match Score
 - Skill Match Score
@@ -166,13 +189,9 @@ CareerMatch AI provides several useful metrics and insights:
 - TF-IDF Vectorization
 - Cosine Similarity
 
-### Data Processing
+### PDF Processing
 
-- Pandas
-
-### Visualization
-
-- Matplotlib
+- PyPDF
 
 ### Web Application
 
@@ -194,6 +213,9 @@ CareerMatch AI provides several useful metrics and insights:
 ```text
 CareerMatch-AI/
 │
+├── .streamlit/
+│   └── config.toml
+│
 ├── data/
 │
 ├── screenshots/
@@ -202,7 +224,138 @@ CareerMatch-AI/
 │   └── matcher.py
 │
 ├── app.py
-│
 ├── requirements.txt
-│
 └── README.md
+```
+
+### Main Components
+
+- **`app.py`** — Main Streamlit application containing the user interface and analysis workflow.
+- **`src/matcher.py`** — Contains the resume-job matching, TF-IDF, cosine similarity, and skill analysis logic.
+- **`.streamlit/config.toml`** — Streamlit configuration used for the application's light professional theme.
+- **`data/`** — Project data and supporting resources.
+- **`screenshots/`** — Application screenshots.
+- **`requirements.txt`** — Python dependencies required to run the project.
+- **`README.md`** — Project documentation.
+
+---
+
+## ⚙️ Installation and Setup
+
+### 1. Clone the Repository
+
+```bash
+git clone <YOUR-GITHUB-REPOSITORY-URL>
+```
+
+### 2. Open the Project Directory
+
+```bash
+cd CareerMatch-AI
+```
+
+### 3. Install Required Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Run the Application
+
+```bash
+python -m streamlit run app.py
+```
+
+The application will open in your web browser.
+
+---
+
+## 🖥️ Application Workflow
+
+```text
+Resume
+   │
+   ▼
+Text Extraction / Input
+   │
+   ▼
+Text Processing
+   │
+   ▼
+TF-IDF Vectorization
+   │
+   ▼
+Cosine Similarity
+   │
+   ├───────────────► Overall Match Score
+   │
+   ▼
+Skill Extraction
+   │
+   ├───────────────► Matched Skills
+   │
+   └───────────────► Skill Gaps
+                         │
+                         ▼
+                  Candidate Status
+                         │
+                         ▼
+                  Career Insights
+                         │
+                         ▼
+               Recommended Next Steps
+```
+
+---
+
+## 📸 Screenshots
+
+Application screenshots are included in the `screenshots` folder.
+
+The application provides a professional light-themed interface for:
+
+- Candidate information
+- Resume input/upload
+- Job description input
+- Resume-job matching
+- Skill analysis
+- Candidate classification
+- Career insights
+- Improvement recommendations
+
+---
+
+## 🚀 Future Improvements
+
+The current version provides a foundation for AI-assisted resume analysis.
+
+Future versions could include:
+
+- Advanced NLP-based skill extraction
+- Larger and dynamically updated skill databases
+- Job recommendation based on resume content
+- Resume quality scoring
+- Automated resume improvement suggestions
+- Multiple job comparison
+- Experience-based candidate evaluation
+- Integration with online job platforms
+- More advanced semantic similarity models
+- Personalized career path recommendations
+
+---
+
+## 🎓 Internship Project
+
+**Project:** CareerMatch AI  
+**Domain:** Artificial Intelligence / Machine Learning / Natural Language Processing  
+**Application Type:** Web-based Resume & Job Matching System
+
+This project was developed as part of an internship to demonstrate the practical application of Python, Machine Learning, NLP, and Streamlit.
+
+---
+
+## 👩‍💻 Author
+
+**Ritika**
+
+CareerMatch AI — Resume Intelligence & Job Matching Platform
