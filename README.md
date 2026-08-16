@@ -1,5 +1,7 @@
 # 🎯 CareerMatch AI
 
+[🚀 Live Demo](https://careermatch-ai-app.streamlit.app/)
+
 ### AI-Powered Resume Intelligence & Job Matching Platform
 
 CareerMatch AI is an AI/ML-based web application that analyzes a candidate's resume against a target job description and provides meaningful career insights.
